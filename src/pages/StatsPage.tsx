@@ -75,7 +75,7 @@ export function StatsPage({
   const strongestWords = storedRows
     .filter((row) => row.attempts > 0 && row.wrong === 0)
     .sort((a, b) => b.correct - a.correct || a.text.localeCompare(b.text, 'ru'))
-    .slice(0, 10)
+    .slice(0, 100)
 
   const currentMistakes = answers.filter((a) => !a.ok)
   const lastFive = answers.slice(-5).reverse()
@@ -206,7 +206,7 @@ export function StatsPage({
 
           <Card className="rounded-md shadow-sm">
             <CardContent className="p-6">
-              <h2 className="text-xl font-semibold">Сильные слова</h2>
+              <h2 className="text-xl font-semibold">Топ 100 сильных слов</h2>
               <p className="mt-1 text-sm text-slate-500">Слова без ошибок</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {strongestWords.length === 0 ? (
